@@ -17,7 +17,7 @@
     align-items: center;
     width: 5rem;
     height: 5rem;
-    color: var(--color-primary);
+    color: black;
     margin-bottom: 0.5rem;
     border-radius: 50%;
     text-decoration: none;
@@ -25,7 +25,7 @@
   }
   
   .social-media a:hover {
-    color: var(--color-primary-variant);
+    color: black;
     
   }
   

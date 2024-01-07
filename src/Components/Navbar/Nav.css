@@ -1,56 +1,80 @@
-/* Basic Navbar Styles */
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Navbar Styles */
 .navbar {
-    background-color: #333;
-    overflow: hidden;
+  display: flex;
+  justify-content: space-between; /* Align items on opposite sides */
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #FFD700; /* Gold color on hover */
+}
+
+/* Hamburger Icon */
+.hamburger-icon {
+  display: none; /* Hidden by default */
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Navbar Links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+/* Media Query for Mobile Screens */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: row; /* Keep it row to maintain space-between */
+    width: auto;
   }
-  
-  .navbar a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .navbar a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  /* Logo Styles */
-  .navbar .logo {
-    float: left;
-    display: block;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 24px;
-    color: white;
-  }
-  
-  /* Navigation Links Container */
+
   .navbar-links {
-    float: right;
+    position: absolute;
+    left: 0; /* Align to the left */
+    top: 60px; /* Adjust top as per the height of your navbar */
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333; /* Match navbar background */
+    text-align: left;
   }
-  
-  /* Responsive Navbar */
-  @media screen and (max-width: 600px) {
-    .navbar a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-  
-    .navbar .logo {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-  
-    .navbar-links {
-      float: none;
-      display: block;
-      text-align: right;
-    }
+
+  .navbar-links a {
+    padding: 10px 20px;
+    border-bottom: 1px solid #FFF; /* Add a subtle separator */
   }
-  
+
+  .navbar-links.opened {
+    display: flex;
+  }
+
+  .hamburger-icon {
+    display: block;
+    margin-left: auto; /* Pushes the icon to the opposite side of the logo */
+  }
+}

@@ -1,0 +1,128 @@
+.container__canvas {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .card__wrapper {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* for smoother scrolling on iOS */
+  }
+  
+
+  
+  .container__canvas h1
+  {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+    font-family: 'Cormorant Garamond', serif;;
+  }
+
+
+  .card__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-color: #f5f5f5;
+    margin-bottom: 5rem;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .card__content {
+    text-align: center;
+  }
+  
+  .card__title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .card__subtitle {
+    margin-bottom: 10px;
+  }
+  
+  .card__price {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .btn-canvas{
+    width: max-content;
+    display: inline-block;
+    color: var(--color-primary);
+    padding: 0.75rem 1.2rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 1px solid var(--color-primary);
+    transition: var(--transition);
+  }
+  
+  .btn-canvas:hover {
+    background: var(--color-bg);
+    color: var(--color-primary);
+    border-color: transparent;
+}
+
+.btn-canvas-primary {
+    background: var(--color-primary);
+    color: var(--color-bg);
+}
+
+
+@media screen and (max-width: 768px) {
+  .container__canvas h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
+ 
+
+}
+
+.search-bar {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+

@@ -5,7 +5,7 @@
       "title": "Item 02",
       "name": "Contact",
       "description": "Vivamus quis libero erat. Integer ac purus est.",
-      "image": "/src/Assets/Images/IMAGE.png"
+      "image": "../DataImages/GalleryImages/IMAGE.png"
     },
     {
         "title": "Item 01",

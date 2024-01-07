@@ -1,128 +1,115 @@
-.container__canvas {
+/* Base Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* You can choose your preferred font */
+  }
+  
+  /* Store Container Styles */
+  .container__canvas {
+    text-align: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .container__canvas-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Search Bar Styles */
+  .search-bar input {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Card Container */
+  .card_wrapper {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 1200px;
-    width: 100%;
+    gap: 20px;
   }
   
-  .card__wrapper {
-    display: flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* for smoother scrolling on iOS */
-  }
-  
-
-  
-  .container__canvas h1
-  {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 4rem;
-    margin-top: 4rem;
-    font-family: 'Cormorant Garamond', serif;;
-  }
-
-
   .card__container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    width: 100%;
-    overflow: hidden;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   
+  /* Card Styles */
   .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 300px;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid #ddd;
+    border-radius: 8px;
     overflow: hidden;
-    transition: all 0.3s ease;
-    background-color: #f5f5f5;
-    margin-bottom: 5rem;
+    width: calc(33.333% - 20px); /* Three cards per row */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
   }
   
   .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.3);
   }
   
   .card__image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 10px;
+    height: auto;
   }
   
   .card__content {
-    text-align: center;
+    padding: 15px;
   }
   
   .card__title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    margin: 0;
+    color: #333;
+    font-size: 1.2rem;
   }
   
   .card__subtitle {
-    margin-bottom: 10px;
+    color: #666;
   }
   
   .card__price {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
   }
   
-  .btn-canvas{
-    width: max-content;
-    display: inline-block;
-    color: var(--color-primary);
-    padding: 0.75rem 1.2rem;
-    border-radius: 0.4rem;
+  .btn-canvas {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    border: 1px solid var(--color-primary);
-    transition: var(--transition);
+    transition: background-color 0.3s;
   }
   
   .btn-canvas:hover {
-    background: var(--color-bg);
-    color: var(--color-primary);
-    border-color: transparent;
-}
-
-.btn-canvas-primary {
-    background: var(--color-primary);
-    color: var(--color-bg);
-}
-
-
-@media screen and (max-width: 768px) {
-  .container__canvas h1 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
+    background-color: #555;
   }
-
- 
-
-}
-
-.search-bar {
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 1rem;
-  margin-bottom: 3rem;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .card {
+      width: calc(50% - 20px); /* Two cards per row */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .card {
+      width: 100%; /* One card per row */
+    }
+  
+    .search-bar input {
+      width: 90%;
+    }
+  }
+  

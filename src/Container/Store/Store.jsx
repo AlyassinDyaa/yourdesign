@@ -1,79 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Store.css';
 import { motion } from 'framer-motion';
-import C1 from "../../Assets/Images/products/c1.jpg"
-import C1H from "../../Assets/Images/products/c11.jpg"
-import C2 from "../../Assets/Images/products/c2.jpg"
-import C2H from "../../Assets/Images/products/c22.jpg"
 
 const Store = () => {
   const [searchValue, setSearchValue] = useState('');
+  const [products, setProducts] = useState([]);
 
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      name: 'Product 1',
-      subtitle: 'Product 1 Subtitle',
-      price: '$10',
-      image: C1,
-      hoverImage: C1H,
-      isHovered: false
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-      subtitle: 'Product 2 Subtitle',
-      price: '$20',
-      image: C2,
-      hoverImage: C2H,
-      isHovered: false
-    },
-  ]);
+  useEffect(() => {
+    fetch('./Data/productData.json') // Update this to the correct path
+      .then(response => response.json())
+      .then(data => {
+        // Add isHovered property to each product
+        const productsWithHover = data.map(product => ({
+          ...product,
+          isHovered: false
+        }));
+        setProducts(productsWithHover);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   const filteredProducts = searchValue
-    ? products.filter((product) =>
+    ? products.filter(product =>
         product.name.toLowerCase().includes(searchValue.toLowerCase())
       )
     : products;
 
   const handleHover = (id) => {
-    const updatedProducts = products.map((product) => {
-      if (product.id === id) {
-        return {
-          ...product,
-          isHovered: true
-        }
-      }
-      return product;
-    });
-
+    const updatedProducts = products.map(product => 
+      product.id === id ? { ...product, isHovered: true } : product
+    );
     setProducts(updatedProducts);
   };
 
   const handleMouseLeave = () => {
-    const updatedProducts = products.map((product) => ({
+    const updatedProducts = products.map(product => ({
       ...product,
       isHovered: false
     }));
-
     setProducts(updatedProducts);
   };
 
   const handleEmailButtonClick = (product) => {
-    const subject = product.name;
-    const message = `Price: ${product.price}\nSubtitle: ${product.subtitle}`;
-    const email = 'dyaa@gmail.com';
-    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-    window.location.href = mailtoLink;
+    const subject = `${product.name} Purchase`;
+    const body = `I am interested in purchasing: ${product.name}\n\nProduct Details:\n${product.subtitle}\nPrice: ${product.price}\n]`;
+    const mailtoLink = `mailto:dyaa@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink, '_blank');
   };
-
-  
 
   return (
     <div id='canvas' className='container__canvas'>
       <h1 className='container__canvas-title'>OUR COLLECTION</h1>
 
-        {/* <motion.div 
+      {/* <motion.div 
         className='search-bar'
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -89,7 +68,7 @@ const Store = () => {
 
       <div className='card_wrapper'>
         <div className='card__container'>
-          {filteredProducts.length > 0 ? filteredProducts.map((product) => (
+          {filteredProducts.length > 0 ? filteredProducts.map(product => (
             <div
               key={product.id}
               className='card'
@@ -109,16 +88,12 @@ const Store = () => {
               </div>
             </div>
           )) : (
-            <div className='card'>
-              <img className='card__image' src={require('../../Assets/placeholder.jpg').default} alt='No Results' />
-              <div className='card__content'>
-                <h2 className='card__title'>No Results</h2>
-              </div>
-            </div>
+            <div className='no-results'>No Results Found</div>
           )}
         </div>
       </div>
     </div>
-    )}
+  );
+}
 
 export default Store;

@@ -72,13 +72,13 @@ button:hover {
     margin-top: 20px;
   }
   
-  /* Responsive design for smaller screens */
-  @media screen and (max-width: 768px) {
-    .contact-container {
-      grid-template-columns: 1fr; /* Stack columns on smaller screens */
-    }
-  }
-
+  .map-container iframe {
+    width: 100%;
+    height: 300px; /* Adjust height as needed */
+    border: none;
+    max-width: 600px; /* Maximum width for the map */
+    margin: auto; /* Center the map */
+}
   .location_Contact_info {
   margin-top: 20px;
 }
@@ -102,29 +102,39 @@ button:hover {
 
 /* Responsive design for smaller screens */
 @media screen and (max-width: 768px) {
-    .container__contact {
-      grid-template-columns: 1fr; /* Stack columns on smaller screens */
-      padding: 10px; /* Reduced padding for smaller screens */
-      max-width: auto; /* Ensure it doesn't exceed the screen width */
-    }
+  .container__contact {
+      grid-template-columns: 1fr; /* One column layout for smaller screens */
+      padding: 10px;
+      max-width: auto; /* Adapt width to the screen size */
+  }
+
+  /* Adjust font sizes for smaller screens */
+  h1, p, .contact-info-item h3, .contact-info-item h4 {
+      font-size: smaller;
+  }
+
+  .contact-info-item {
+      flex-direction: column; /* Stack icon and text vertically */
+      align-items: start;
+  }
+
+  .contact-info-item svg {
+      margin-bottom: 5px; /* Space between icon and text */
+  }
 }
 
+/* Further adjustments for very small screens like mobile phones */
 @media screen and (max-width: 480px) {
-    /* Further adjustments for very small screens like mobile phones */
-    h1, p {
-      font-size: smaller; /* Adjust the font size as needed */
-    }
-
-    .form-group label, .contact-info-item h3, .contact-info-item h4 {
+  .form-group label, .contact-info-item h3, .contact-info-item h4 {
       font-size: smaller; /* Adjust font size for labels and contact info */
-    }
+  }
 }
 
 /* Adjustments for larger screens if needed */
 @media screen and (min-width: 1201px) {
-    .container__contact {
+  .container__contact {
       padding: 30px; /* More padding for larger screens */
       gap: 40px; /* More gap between columns */
-    }
-    /* Additional adjustments for larger displays if needed */
+  }
+  /* Additional adjustments for larger displays if needed */
 }

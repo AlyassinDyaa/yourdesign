@@ -9,10 +9,10 @@ const footer = () => {
         <footer>
           <div class="footer">
               <div class="row">
-                  <a href="#"><i></i>Home</a>
-                  <a href="#"><i></i>About</a>
-                  <a href="#"><i></i>Gallery</a>
-                  <a href="#"><i></i>Store</a>
+                  <a href="/"><i></i>Home</a>
+                  <a href="#Gallery"><i></i>Gallery</a>
+                  <a href="#Store"><i></i>Store</a>
+                  <a href="#Service"><i></i>Services</a>
               </div>
 
               <div class="row">

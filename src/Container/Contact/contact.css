@@ -1,3 +1,6 @@
+
+
+
 .container__contact {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two equal columns for larger screens */

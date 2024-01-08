@@ -7,6 +7,11 @@ const Store = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  
+  useEffect(() => {
     fetch('./Data/productData.json') // Update this to the correct path
       .then(response => response.json())
       .then(data => {
@@ -50,7 +55,12 @@ const Store = () => {
 
   return (
     <div id='canvas' className='container__canvas'>
-      <h1 className='container__canvas-title'>OUR COLLECTION</h1>
+       <header>
+        <h1 style={{paddingTop: "6rem"}}>
+          Your Design <br />
+          <span>[ CANVAS PRODUCTS ]</span>
+        </h1>
+      </header>
 
       {/* <motion.div 
         className='search-bar'

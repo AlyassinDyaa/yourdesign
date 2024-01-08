@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./header.css";
 
 import logo from "../../../Assets/Images/Logo/logoTransparent.png"
 
-const header = () => {
+const Header = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   return (
     <div className='container__header' id='home'>
 
@@ -21,4 +27,4 @@ const header = () => {
   )
 }
 
-export default header
+export default Header

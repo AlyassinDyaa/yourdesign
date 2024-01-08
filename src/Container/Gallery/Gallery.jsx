@@ -5,6 +5,10 @@ const Gallery = () => {
   const [galleryData, setGalleryData] = useState([]);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     // Fetch gallery data from the JSON file
@@ -42,7 +46,7 @@ const Gallery = () => {
   return (
     <div>
       <header>
-        <h1>
+        <h1 style={{paddingTop: "6rem"}}>
           Your Design <br />
           <span>[ Portfolio Gallery ]</span>
         </h1>
@@ -63,28 +67,33 @@ const Gallery = () => {
           </ul>
         </div>
 
-        {isGalleryOpen && (
-          <div className="gallery-modal">
-            <div className="modal-content">
-              <span className="close-button" onClick={closeGallery}>
-                &times;
-              </span>
-              <img src={galleryData[currentImageIndex].image} alt={galleryData[currentImageIndex].title} />
-              <div className="modal-description">
-                <h1>{galleryData[currentImageIndex].title}</h1>
-                <p>{galleryData[currentImageIndex].description}</p>
-              </div>
-              <div className="navigation">
-                <button onClick={previousImage} disabled={currentImageIndex === 0}>
-                  Previous
-                </button>
-                <button onClick={nextImage} disabled={currentImageIndex === galleryData.length - 1}>
-                  Next
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+        {
+  isGalleryOpen && (
+    <div className="gallery-modal">
+      <div className="modal-content">
+        <span className="close-button" onClick={closeGallery}>&times;</span>
+        
+        <div className="modal-image-container">
+          <img src={galleryData[currentImageIndex].image} alt={galleryData[currentImageIndex].title} />
+        </div>
+        
+        <div className="modal-description">
+          <h1>{galleryData[currentImageIndex].title}</h1>
+          <p>{galleryData[currentImageIndex].description}</p>
+        </div>
+
+        <div className="navigation">
+          <button onClick={previousImage} disabled={currentImageIndex === 0}>
+          &lt;
+          </button>
+          <button onClick={nextImage} disabled={currentImageIndex === galleryData.length - 1}>
+            &gt;
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
 
         {galleryData.map((item, index) => (
           <div key={index} id={`item${index + 1}`} className="port">

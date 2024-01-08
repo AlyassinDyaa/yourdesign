@@ -1,28 +1,27 @@
-/* General Styles */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-}
-
 /* Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between; /* Align items on opposite sides */
   align-items: center;
-  background-color: #333;
+  background-color: rgba(211, 211, 211, 0.5); /* Light gray color with transparency */
+  color: black; /* Clear text color */
   padding: 10px 20px;
-  color: white;
+  position: fixed; /* Fix the position */
+  top: 0; /* Position at the top */
+  left: 0; /* Align to the left */
+  right: 0; /* Stretch across the width */
+  z-index: 1000; /* Ensure it's above other elements */
+  backdrop-filter: blur(10px); /* Blur effect */
 }
 
 .navbar .logo {
   font-size: 24px;
   font-weight: bold;
-  color: #FFF;
+  color: black; /* Logo text color */
 }
 
 .navbar a {
-  color: white;
+  color: black; /* Link text color */
   text-decoration: none;
   margin: 0 15px;
   font-size: 16px;

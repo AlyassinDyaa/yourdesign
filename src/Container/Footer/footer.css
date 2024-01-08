@@ -6,12 +6,14 @@ body {
 .footer {
     font-family: 'Play', sans-serif;
     text-align: center;
+    background-color: #e7e7e7;
+    
 }
 
 .footer .row {
-    width: 100%;
-    margin: 1% auto; /* Centering the row horizontally */
+    width: 100%; 
     padding: 0.6% 0%;
+    padding-bottom: 1rem;
     color: black;
     font-family: 'Cormorant Garamond', serif;
     font-size: larger;
